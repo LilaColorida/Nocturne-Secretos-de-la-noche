@@ -1,0 +1,95 @@
+<style>
+    #game {
+    width:1000px;
+    height:600px;
+    background-image: url(sala.jpg);
+    margin: 0 auto;
+    background-size: 100%;
+}
+
+.characters {
+    width:496px;
+    height:430px;
+    display:inline-block;
+}
+
+#character1 {
+    background-image: url(luna.png);
+    background-size: 100%;
+}
+
+#character2 {
+    background-image: url(fenrir1.png);
+    background-size: 100%;
+}
+
+#dialog {
+    height:100px;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+
+    padding: 20px;
+    font-size: 25px;
+    background-color: rgba(255, 255, 255, .8);
+    border-radius: 20px;
+}
+
+#final {
+    display: none;
+    max-height: 600px;
+    margin: 0 auto;
+}
+</style>
+
+<div id="game">
+<div class="characters" id="character1">
+    .
+</div>
+<div class="characters" id="character2">
+    .
+</div>
+<div id="dialog" onclick="nextComment()">
+    (Click para empezar)
+</div>
+</div>
+
+<img id="final" src="Final1.jpg" alt="Kai se animó a cantar en el concierto junto a Sayumi.">
+
+<script>
+
+const comments = [
+"Mi nombre es Moon y esta es la historia de cómo mi vida cambió por completo. Todo empezó cuando mis padres me dijeron que teníamos que mudarnos a otra ciudad por motivos de trabajo. Yo no quería dejar mi hogar, mis amigos y mi escuela, pero no tuve más remedio que aceptar la decisión de mis padres.",
+"Estaba en la sala de mi casa, haciendo las maletas, cuando mi hermano mayor Ferir entró por la puerta. Ferir ya vivía en la nueva ciudad y estudiaba en el instituto Nocturne. Él había venido a buscarme para llevarme con él.",
+"<b>Fenrir</b>: Hola, Moon. ¿Estás lista para irte?",
+"<b>Moon</b>: Hola, Ferir. Sí, casi. Solo me falta cerrar esta maleta.",
+"<b>Fenrir</b>: Déjame ayudarte. (Cierra la maleta y la carga en su hombro) Vamos, no tenemos mucho tiempo. El avión sale en dos horas.",
+"<b>Moon</b>: Espera, Ferir. ¿No vas a despedirte de papá y mamá?",
+"<b>Fenrir</b>: Ellos ya se han ido al aeropuerto. Nos veremos allí.",
+"<b>Moon</b>: ¿Qué? ¿Por qué no me lo han dicho?",
+"<b>Fenrir</b>: No querían molestarte. Saben que estás triste por dejar tu vida aquí.",
+"<b>Moon</b>: Pero yo quería abrazarlos y decirles adiós.",
+"<b>Fenrir</b>: Lo sé, Moon. Pero no te preocupes. Los verás pronto. Y yo estaré contigo. Te prometo que todo va a estar bien.",
+"<b>Moon</b>:  Bueno entonces por lo mientras déjame abrazar a mi hermano querido jajaja",
+"<b>Ferir</b>: Qué!? Oh no sabes que no me gustan los abrazos",
+"<b>Moon</b>:  Ni siquiera de tu hermana favorita",
+"<b>Ferir</b>: Eres mi única hermana",
+"<b>Moon</b>:  Lo sé, así que deja de ser un gruñon",
+];
+
+let commentIndex = 0;
+
+function nextComment() {
+    document.getElementById('dialog').innerHTML = comments[commentIndex]
+
+    commentIndex = commentIndex + 1;
+
+if (commentIndex > comments.length) {
+    document.getElementById('game').style.display = 'none'; // Ocultar el juego
+    document.getElementById('final').style.display = 'block'; // Mostrar la imagen
+
+} 
+}
+
+</script>
